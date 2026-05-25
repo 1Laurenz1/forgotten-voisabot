@@ -6,6 +6,8 @@ from pyrogram.raw.functions.messages import RequestMainWebView
 from src.config.config_reader import settings
 from src.logger.logger_main import logger
 
+from urllib.parse import unquote
+
 
 async def get_web_app_data(app: Client) -> str:
     resolved = await app.invoke(
@@ -34,5 +36,6 @@ async def get_web_app_data(app: Client) -> str:
 
     url = result.url
     data = url.split("tgWebAppData=")[1].split("&tgWebAppVersion")[0]
+    data = unquote(unquote(data))
     
     return data
