@@ -26,7 +26,7 @@ async def get_web_app_data(app: Client) -> str:
         RequestMainWebView(
             peer=bot_peer,
             bot=bot_user,
-            platform="android"
+            platform="web"
         )
     )
     
